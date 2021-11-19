@@ -7,10 +7,9 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import logica.Itinerario;
 
 public class ItinerarioDAO {
-		public List<Itinerario> findAll() throws SQLException {
+		/*public List<Itinerario> findAll() throws SQLException {
 			Connection connection = ConnectionProvider.getConnection();
 			String sql = "select * FROM atraccion";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -20,13 +19,13 @@ public class ItinerarioDAO {
 				todos.add(toAtraccion(result));
 			}
 			return todos;
-		}
+		}*/
 
-		private Itinerario toAtraccion(ResultSet result) throws SQLException {
+		/*private Itinerario toAtraccion(ResultSet result) throws SQLException {
 			return new Itinerario(result.getString("nombre"),result.getDouble("costo"),result.getDouble("tiempo"),result.getInt("cupo"));
-		}
+		}*/
 		
-		public List<Itinerario> findByNombre(String nom) throws SQLException {
+		/*public List<Itinerario> findByNombre(String nom) throws SQLException {
 			Connection connection = ConnectionProvider.getConnection();
 			String sql = "select * FROM atraccion WHERE nombre=?";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -38,9 +37,9 @@ public class ItinerarioDAO {
 				todos.add(toAtraccion(result));
 			}
 			return todos;
-		}
+		}*/
 		
-		public int delete(Itinerario atraccion) throws SQLException {
+		/*public int delete(Itinerario atraccion) throws SQLException {
 			Connection connection = ConnectionProvider.getConnection();
 			String sql = "DELETE FROM atraccion WHERE nombre=?";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -48,9 +47,9 @@ public class ItinerarioDAO {
 			
 			int rows = statement.executeUpdate();
 			return rows;
-		}
+		}*/
 		
-		public int insert(Itinerario atraccion) throws SQLException {
+		/*public int insert(Itinerario atraccion) throws SQLException {
 			Connection connection = ConnectionProvider.getConnection();
 			String sql = "INSERT INTO atraccion (nombre,dinero, tiempo) VALUES (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -60,9 +59,9 @@ public class ItinerarioDAO {
 			
 			int rows = statement.executeUpdate();
 			return rows;
-		}
+		}*/
 		
-		public int update(Itinerario atraccion) throws SQLException {
+		/*public int update(Itinerario atraccion) throws SQLException {
 			Connection connection = ConnectionProvider.getConnection();
 			String sql = "UPDATE usuario SET nombre=?,dinero=?, tiempo=? WHERE nombre=?";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -74,5 +73,6 @@ public class ItinerarioDAO {
 			int rows = statement.executeUpdate();
 			return rows;
 		}
+		*/
 
 }

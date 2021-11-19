@@ -38,9 +38,9 @@ public class MainTierraMedia {
 		//listaDePromociones.listarPromociones();*/
 		
 		
-		/*Ofertador ofertas=new Ofertador();
-		ofertas.generarOferta(atraccionesDisponibles, promocionesDisponibles, usuarios);
-		listaDeUsuarios.listarUsuarios();*/
+		Ofertador ofertas=new Ofertador();
+		ofertas.generarOferta(listaDeAtracciones, listaDePromociones, listaDeUsuarios);
+		System.out.println(listaDeUsuarios);
 		
 		//listaDeAtracciones.listarAtracciones();
 		//listaDePromociones.listarPromociones();
