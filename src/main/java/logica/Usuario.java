@@ -3,13 +3,15 @@ package logica;
 import java.util.ArrayList;
 
 public class Usuario {
+	private Integer id;
 	private String nombre;
 	private double presupuesto;
 	private double tiempo_disponible;
 	private ArrayList<Producto> itinerario;
 	private ArrayList<Atraccion> soloAtracciones;
 
-	public Usuario(String nombre, double presupuesto, double tiempo_disponible) {
+	public Usuario(Integer id, String nombre, double presupuesto, double tiempo_disponible) {
+		this.id=id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempo_disponible = tiempo_disponible;
@@ -18,6 +20,14 @@ public class Usuario {
 
 	public double getPresupuesto() {
 		return this.presupuesto;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setPresupuesto(double presupuesto) {

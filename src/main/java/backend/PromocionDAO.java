@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logica.Atraccion;
+import logica.Producto;
 import logica.Promocion;
 import logica.PromocionAbsoluta;
 import logica.PromocionPorcentual;
@@ -42,13 +43,13 @@ public class PromocionDAO {
 			}
 		}
 		if (result.getString("tipo").equals("ABSOLUTO")) {
-			return new PromocionAbsoluta(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
+			return new PromocionAbsoluta(result.getInt("id") ,result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
 					result.getDouble("descuento"));
 		} else if (result.getString("tipo").equals("PORCENTUAL")) {
-			return new PromocionPorcentual(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
+			return new PromocionPorcentual(result.getInt("id") ,result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
 					result.getDouble("descuento"));
 		} else {
-			return new PromocionAXB(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion);
+			return new PromocionAXB(result.getInt("id") ,result.getString("nombre"), costo, tiempo, atraccionesEnPromocion);
 		}
 	}
 
@@ -101,18 +102,18 @@ public class PromocionDAO {
 		return rows;
 	}*/
 
-	/*public int update(Promocion promocion) throws SQLException {
+	public int update(Producto promocion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE promocion SET nombre=?,dinero=?, tiempo=? WHERE nombre=?";
+		String sql = "UPDATE promocion SET nombre=?,dinero=?, tiempo=? WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, promocion.getNombre());
+		statement.setString(1, promocion.getNombreAtraccion());
 		statement.setDouble(2, promocion.getPresupuesto());
 		statement.setDouble(3, promocion.getTiempo_disponible());
-		statement.setString(4, promocion.getNombre());
+		statement.setInt(4, promocion.getId());
 
 		int rows = statement.executeUpdate();
 		return rows;
-	}*/
+	}
 
 	
 

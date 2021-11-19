@@ -1,7 +1,15 @@
 package logica;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 import java.util.Scanner;
+
+import backend.AtraccionDAO;
+import backend.ItinerarioAtraccionDAO;
+import backend.ItinerarioPromocionDAO;
+import backend.PromocionDAO;
+import backend.UsuarioDAO;
 
 public class Ofertador {
 	private ArrayList<Producto> itinerarios;
@@ -12,7 +20,7 @@ public class Ofertador {
 
 	@SuppressWarnings("resource")
 	public void generarOferta(ArrayList<Atraccion> atraccionesA, ArrayList<Promocion> promocionesP,
-			ArrayList<Usuario> usuariosU) {
+			ArrayList<Usuario> usuariosU,ItinerarioPromocionDAO itinerarioPromocionDao,ItinerarioAtraccionDAO itinerarioAtraccionDao) throws SQLException {
 		double presupuesto = 0;
 		double tiempoDisponible = 0;
 		System.out.println("Bienvenido/a a la Tierra Media");
@@ -20,12 +28,14 @@ public class Ofertador {
 		for (Usuario usuario : usuariosU) {
 			itinerarios = new ArrayList<Producto>();
 			soloAtracciones = new ArrayList<Atraccion>();
+			UsuarioDAO usuarioDao = new UsuarioDAO();
 			presupuesto = usuario.getPresupuesto();
 			tiempoDisponible = usuario.getTiempo_disponible();
 			System.out.println("Nombre de visitante: " + usuario.getNombre() + "\n");
 			for (Promocion promocion : promocionesP) {
 				String input;
 				Scanner sc = new Scanner(System.in);
+				PromocionDAO promocionDao = new PromocionDAO();
 				if (presupuesto >= promocion.getConDescuento() && tiempoDisponible >= promocion.getTiempo()
 						&& promocion.obtenerCupoMinimo() > 0
 						&& !promocion.atraccionIncluidaEnPromocion(soloAtracciones)) {
@@ -37,12 +47,14 @@ public class Ofertador {
 						if (input.equals("S") || input.equals("s")) {
 							this.itinerarios.add(promocion);
 							this.soloAtracciones.addAll(promocion.obtenerAtracciones());
-
+							//ItinerarioPromocionDAO itinerarioPromocionDao=new ItinerarioPromocionDAO();
+							itinerarioPromocionDao.insert(promocion.getId(),usuario.getId());
 							System.out.println("Aceptada!");
 							band = true;
 							promocion.decrementarCupos();
 							presupuesto -= promocion.getConDescuento();
 							tiempoDisponible -= promocion.getTiempo();
+							promocionDao.update(promocion);
 							System.out.println("-----------------------------------------------------\n");
 						} else if (input.equals("N") || input.equals("n")) {
 							System.out.println("Descartado");
@@ -58,6 +70,7 @@ public class Ofertador {
 			for (Atraccion atraccion : atraccionesA) {
 				String input;
 				Scanner sc = new Scanner(System.in);
+				AtraccionDAO atraccionDao = new AtraccionDAO();
 				if (presupuesto >= atraccion.getCosto() && tiempoDisponible >= atraccion.getTiempo()
 						&& atraccion.getCupo() > 0 && !soloAtracciones.contains(atraccion)) {
 					System.out.println(atraccion.toString());
@@ -68,11 +81,14 @@ public class Ofertador {
 						if (input.equals("S") || input.equals("s")) {
 							this.itinerarios.add(atraccion);
 							this.soloAtracciones.add(atraccion);
+							//ItinerarioAtraccionDAO itinerarioAtraccionDao=new ItinerarioAtraccionDAO();
+							itinerarioAtraccionDao.insert(atraccion.getId(),usuario.getId());
 							System.out.println("Aceptada!");
 							band = true;
 							atraccion.usarUnCupo();
 							presupuesto -= atraccion.getCosto();
 							tiempoDisponible -= atraccion.getTiempo();
+							atraccionDao.update(atraccion);
 							System.out.println("-----------------------------------------------------\n");
 						} else if (input.equals("N") || input.equals("n")) {
 							System.out.println("Descartado");
@@ -89,6 +105,7 @@ public class Ofertador {
 			usuario.setTiempo_disponible(tiempoDisponible);
 			usuario.setItinerario(itinerarios);
 			usuario.setSoloAtracciones(soloAtracciones);
+			usuarioDao.update(usuario);
 			System.out.println("-----------------------------------------------------\n");
 		}
 	}

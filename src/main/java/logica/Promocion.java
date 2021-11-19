@@ -5,10 +5,15 @@ import java.util.ArrayList;
 public abstract class Promocion extends Producto{
 	
 	protected ArrayList<Atraccion> atracciones;
+	protected int id;
 
-	public Promocion(String nombreAtraccion, double costo, double tiempo, ArrayList<Atraccion> atracciones) {
+	public Promocion(int id,String nombreAtraccion, double costo, double tiempo, ArrayList<Atraccion> atracciones) {
 		super(nombreAtraccion, costo, tiempo);
 		this.atracciones = atracciones;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public void decrementarCupos() {
@@ -57,6 +62,10 @@ public abstract class Promocion extends Producto{
 		}
 		return existe;
 	}
+
+	public abstract double getPresupuesto();
+
+	public abstract double getTiempo_disponible();
 	
 	
 }

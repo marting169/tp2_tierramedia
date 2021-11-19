@@ -6,9 +6,9 @@ public class PromocionPorcentual extends Promocion {
 
 	private double conDescuento;
 	
-	public PromocionPorcentual(String nombreAtraccion, double costo, double tiempo,
+	public PromocionPorcentual(int id,String nombreAtraccion, double costo, double tiempo,
 			ArrayList<Atraccion> atracciones, double conDescuento) {
-		super(nombreAtraccion, costo, tiempo, atracciones);
+		super(id,nombreAtraccion, costo, tiempo, atracciones);
 		setDescuento(conDescuento);
 	}
 	//OK
@@ -31,6 +31,16 @@ public class PromocionPorcentual extends Promocion {
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo
 				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
+	}
+	@Override
+	public double getPresupuesto() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double getTiempo_disponible() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

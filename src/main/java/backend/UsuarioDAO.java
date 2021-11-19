@@ -25,14 +25,14 @@ public class UsuarioDAO {
 	}
 
 	private Usuario toUsuario(ResultSet result) throws SQLException {
-		return new Usuario(result.getString("nombre"),result.getDouble("dinero"),result.getDouble("tiempo"));
+		return new Usuario(result.getInt("id"),result.getString("nombre"),result.getDouble("dinero"),result.getDouble("tiempo"));
 	}
 	
-	public List<Usuario> findByNombre(String nom) throws SQLException {
+	public List<Usuario> findById(int id) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "select * FROM usuario WHERE nombre=?";
+		String sql = "select * FROM usuario WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, nom);
+		statement.setInt(1, id);
 		
 		ResultSet result = statement.executeQuery();
 		List<Usuario> todos=new LinkedList<Usuario>();
@@ -44,9 +44,9 @@ public class UsuarioDAO {
 	
 	public int delete(Usuario usuario) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "DELETE FROM usuario WHERE nombre=?";
+		String sql = "DELETE FROM usuario WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, usuario.getNombre());
+		statement.setInt(1, usuario.getId());
 		
 		int rows = statement.executeUpdate();
 		return rows;
@@ -66,12 +66,12 @@ public class UsuarioDAO {
 	
 	public int update(Usuario usuario) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE usuario SET nombre=?,dinero=?, tiempo=? WHERE nombre=?";
+		String sql = "UPDATE usuario SET nombre=?,dinero=?, tiempo=? WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, usuario.getNombre());
 		statement.setDouble(2, usuario.getPresupuesto());
 		statement.setDouble(3, usuario.getTiempo_disponible());
-		statement.setString(4, usuario.getNombre());
+		statement.setInt(4, usuario.getId());
 		
 		int rows = statement.executeUpdate();
 		return rows;

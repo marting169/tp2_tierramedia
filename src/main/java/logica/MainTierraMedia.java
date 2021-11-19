@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import backend.AtraccionDAO;
+import backend.ConnectionProvider;
+import backend.ItinerarioAtraccionDAO;
+import backend.ItinerarioPromocionDAO;
 import backend.PromocionDAO;
 import backend.UsuarioDAO;
 
@@ -37,9 +40,10 @@ public class MainTierraMedia {
 		listaDePromociones.leerArchivoPromociones(atraccionesDisponibles);
 		//listaDePromociones.listarPromociones();*/
 		
-		
+		ItinerarioPromocionDAO itinerarioPromocionDao=new ItinerarioPromocionDAO();
+		ItinerarioAtraccionDAO itinerarioAtraccionDao=new ItinerarioAtraccionDAO();
 		Ofertador ofertas=new Ofertador();
-		ofertas.generarOferta(listaDeAtracciones, listaDePromociones, listaDeUsuarios);
+		ofertas.generarOferta(listaDeAtracciones, listaDePromociones, listaDeUsuarios,itinerarioPromocionDao,itinerarioAtraccionDao);
 		System.out.println(listaDeUsuarios);
 		
 		//listaDeAtracciones.listarAtracciones();
@@ -48,6 +52,7 @@ public class MainTierraMedia {
 		/*ArchivoSalida salida = new ArchivoSalida();		
 		salida.guardarEnArchivo(usuarios, "archivos/");
 		*/
+		ConnectionProvider.close();
 	}
 
 }

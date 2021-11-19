@@ -6,8 +6,8 @@ public class PromocionAXB extends Promocion{
 	
 	private double conDescuento;
 	
-	public PromocionAXB(String nombreAtraccion, double costo, double tiempo, ArrayList<Atraccion> atracciones) {
-		super(nombreAtraccion, costo, tiempo, atracciones);
+	public PromocionAXB(int id,String nombreAtraccion, double costo, double tiempo, ArrayList<Atraccion> atracciones) {
+		super(id,nombreAtraccion, costo, tiempo, atracciones);
 		setDescuento();
 	}
 
@@ -35,6 +35,18 @@ public class PromocionAXB extends Promocion{
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo
 				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
+	}
+
+	@Override
+	public double getPresupuesto() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getTiempo_disponible() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

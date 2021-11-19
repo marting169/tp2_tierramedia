@@ -38,6 +38,8 @@ public class AtraccionDAO {
 		}
 		return todos;
 	}
+
+
 	
 	/*
 	public int delete(Atraccion atraccion) throws SQLException {
@@ -63,17 +65,17 @@ public class AtraccionDAO {
 		return rows;
 	}*/
 	
-	/*public int update(Atraccion atraccion) throws SQLException {
+	public int update(Atraccion atraccion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE atraccion SET nombre=?,costo=?, tiempo=?, cupo=? WHERE nombre=?";
+		String sql = "UPDATE atraccion SET nombre=?,costo=?, tiempo=?, cupo=? WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, atraccion.getNombreAtraccion());
 		statement.setDouble(2, atraccion.getCosto());
 		statement.setDouble(3, atraccion.getTiempo());
 		statement.setDouble(4, atraccion.getCupo());
-		statement.setString(5, atraccion.getNombreAtraccion());
+		statement.setInt(5, atraccion.getId());
 		
 		int rows = statement.executeUpdate();
 		return rows;
-	}*/
+	}
 }
