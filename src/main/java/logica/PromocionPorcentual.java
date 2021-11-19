@@ -13,7 +13,7 @@ public class PromocionPorcentual extends Promocion {
 	}
 	//OK
 	public void setDescuento(double descuento) {
-		this.conDescuento= this.getCosto()-this.getCosto()*descuento/100;
+		this.conDescuento= this.getCosto()-(this.getCosto()*descuento/100);
 	}
 
 	public double getConDescuento() {
@@ -30,7 +30,7 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo
-				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento;
+				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
 	}
 
 }

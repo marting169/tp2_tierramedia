@@ -33,4 +33,7 @@ public class Atraccion extends Producto{
 	public String toString2() {
 		return nombre + " ";
 	}
+	public Integer getId() {
+		return this.id;
+	}
 }

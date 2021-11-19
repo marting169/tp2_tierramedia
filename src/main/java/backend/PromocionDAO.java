@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import logica.Atraccion;
@@ -22,32 +21,51 @@ public class PromocionDAO {
 		ResultSet result = statement.executeQuery();
 		ArrayList<Promocion> todos = new ArrayList<Promocion>();
 		while (result.next()) {
-			todos.add(toPromocion(result,atraccionesDisponibles));
+			todos.add(toPromocion(result, atraccionesDisponibles));
 		}
 		return todos;
 	}
 
-	private Promocion toPromocion(ResultSet result,ArrayList<Atraccion> atraccionesDisponibles) throws SQLException {
+	private Promocion toPromocion(ResultSet result, ArrayList<Atraccion> atraccionesDisponibles) throws SQLException {
 		double costo = 0;
 		double tiempo = 0;
-		Integer [] ides  = findIdAtraccionByIdPromocion(result.getInt("id"));
-		for (Atraccion atraccion : atraccionesDisponibles) {
-			costo += atraccion.getCosto();
-			tiempo += atraccion.getTiempo();
+		ArrayList<Atraccion> atraccionesEnPromocion = new ArrayList<Atraccion>();
+		List<Integer> ides = findIdAtraccionByIdPromocion(result.getInt("id"));
+		for (int i = 0; i < ides.size(); i++) {
+			for (Atraccion atraccion : atraccionesDisponibles) {
+				if(atraccion.getId()==ides.get(i)) {
+					atraccionesEnPromocion.add(atraccion);
+					costo += atraccion.getCosto();
+					tiempo += atraccion.getTiempo();
+					break;
+				}
+			}
 		}
-		if (result.getString("tipo") == "ABSOLUTO") {
+		if (result.getString("tipo").equals("ABSOLUTO")) {
 			return new PromocionAbsoluta(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
 					result.getDouble("descuento"));
-		} else if (result.getString("tipo") == "PORCENTUAL") {
+		} else if (result.getString("tipo").equals("PORCENTUAL")) {
 			return new PromocionPorcentual(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion,
 					result.getDouble("descuento"));
 		} else {
-			return new PromocionAXB(result.getString("nombre"), costo, tiempo,
-					atraccionesEnPromocion);
+			return new PromocionAXB(result.getString("nombre"), costo, tiempo, atraccionesEnPromocion);
 		}
 	}
 
-	public List<Promocion> findByNombre(String nom) throws SQLException {
+	public List<Integer> findIdAtraccionByIdPromocion(int i) throws SQLException {
+		Connection connection = ConnectionProvider.getConnection();
+		String sql = "SELECT id_atraccion FROM promocion_atraccion WHERE ?=promocion_atraccion.id_promocion ";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setInt(1, i);
+		ResultSet result = statement.executeQuery();
+		List<Integer> atracciones = new ArrayList<Integer>();
+		while (result.next()) {
+			atracciones.add(result.getInt("id_atraccion"));
+		}
+		return atracciones;
+	}
+	
+	/*public List<Promocion> findByNombre(String nom) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "select * FROM promocion WHERE nombre=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -59,9 +77,9 @@ public class PromocionDAO {
 			todos.add(toPromocion(result));
 		}
 		return todos;
-	}
+	}*/
 
-	public int delete(Promocion promocion) throws SQLException {
+	/*public int delete(Promocion promocion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "DELETE FROM promocion WHERE nombre=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -69,9 +87,9 @@ public class PromocionDAO {
 
 		int rows = statement.executeUpdate();
 		return rows;
-	}
+	}*/
 
-	public int insert(Promocion promocion) throws SQLException {
+	/*public int insert(Promocion promocion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "INSERT INTO promocion (nombre,dinero, tiempo) VALUES (?,?,?)";
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -81,9 +99,9 @@ public class PromocionDAO {
 
 		int rows = statement.executeUpdate();
 		return rows;
-	}
+	}*/
 
-	public int update(Promocion promocion) throws SQLException {
+	/*public int update(Promocion promocion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "UPDATE promocion SET nombre=?,dinero=?, tiempo=? WHERE nombre=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -94,25 +112,8 @@ public class PromocionDAO {
 
 		int rows = statement.executeUpdate();
 		return rows;
-	}
+	}*/
 
-	public ArrayList<Atraccion> findIdAtraccionByIdPromocion(int i) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "SELECT DISTINCT atraccion.* FROM promocion_atraccion JOIN atraccion ON promocion_atraccion.id_atraccion=atraccion.id WHERE ?=promocion_atraccion.id_promocion ";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, i);
-
-		ResultSet result = statement.executeQuery();
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-		while (result.next()) {
-			atracciones.add(toAtraccion(result));
-		}
-		return atracciones;
-	}
-
-	private Atraccion toAtraccion(ResultSet result) throws SQLException {
-		return new Atraccion(result.getInt("id"), result.getString("nombre"), result.getDouble("costo"),
-				result.getDouble("tiempo"), result.getInt("cupo"));
-	}
+	
 
 }

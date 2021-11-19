@@ -34,7 +34,7 @@ public class PromocionAXB extends Promocion{
 	@Override
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo
-				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento;
+				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
 	}
 
 }
