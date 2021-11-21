@@ -36,14 +36,4 @@ public class Atraccion extends Producto{
 	public int getId() {
 		return this.id;
 	}
-	@Override
-	public double getPresupuesto() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public double getTiempo_disponible() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

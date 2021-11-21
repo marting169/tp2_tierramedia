@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logica.Atraccion;
-import logica.Producto;
 import logica.Promocion;
 import logica.PromocionAbsoluta;
 import logica.PromocionPorcentual;
@@ -102,14 +101,12 @@ public class PromocionDAO {
 		return rows;
 	}*/
 
-	public int update(Producto promocion) throws SQLException {
+	public int update(Promocion promocion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE promocion SET nombre=?,dinero=?, tiempo=? WHERE id=?";
+		String sql = "UPDATE promocion SET costo=? WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, promocion.getNombreAtraccion());
-		statement.setDouble(2, promocion.getPresupuesto());
-		statement.setDouble(3, promocion.getTiempo_disponible());
-		statement.setInt(4, promocion.getId());
+		statement.setDouble(1, promocion.getCosto());
+		statement.setInt(2, promocion.getId());
 
 		int rows = statement.executeUpdate();
 		return rows;

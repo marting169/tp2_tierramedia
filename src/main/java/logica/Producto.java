@@ -37,12 +37,4 @@ public abstract class Producto {
 		this.tiempo = tiempo;
 	}
 
-
-	public abstract double getPresupuesto();
-
-
-	public abstract double getTiempo_disponible();
-
-
-	public abstract int getId();
 }

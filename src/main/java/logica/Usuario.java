@@ -66,7 +66,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "USUARIO: [Nombre=" + nombre + ", Presupuesto=" + presupuesto + ", Tiempo_disponible=" + tiempo_disponible + "]"
+		return "\nUSUARIO: [Nombre=" + nombre + ", Presupuesto=" + presupuesto + ", Tiempo_disponible=" + tiempo_disponible + "]"
 				+ "\nITINERARIO:\n" + itinerario ;
 	}
 

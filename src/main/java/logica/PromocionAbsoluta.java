@@ -33,16 +33,4 @@ public class PromocionAbsoluta extends Promocion{
 				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
 	}
 
-	@Override
-	public double getPresupuesto() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getTiempo_disponible() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

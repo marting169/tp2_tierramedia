@@ -67,13 +67,12 @@ public class AtraccionDAO {
 	
 	public int update(Atraccion atraccion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE atraccion SET nombre=?,costo=?, tiempo=?, cupo=? WHERE id=?";
+		String sql = "UPDATE atraccion SET costo=?, tiempo=?, cupo=? WHERE id=?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, atraccion.getNombreAtraccion());
-		statement.setDouble(2, atraccion.getCosto());
-		statement.setDouble(3, atraccion.getTiempo());
-		statement.setDouble(4, atraccion.getCupo());
-		statement.setInt(5, atraccion.getId());
+		statement.setDouble(1, atraccion.getCosto());
+		statement.setDouble(2, atraccion.getTiempo());
+		statement.setDouble(3, atraccion.getCupo());
+		statement.setInt(4, atraccion.getId());
 		
 		int rows = statement.executeUpdate();
 		return rows;

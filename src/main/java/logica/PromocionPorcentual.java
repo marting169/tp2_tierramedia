@@ -32,15 +32,5 @@ public class PromocionPorcentual extends Promocion {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo
 				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
 	}
-	@Override
-	public double getPresupuesto() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public double getTiempo_disponible() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }

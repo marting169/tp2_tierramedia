@@ -62,10 +62,5 @@ public abstract class Promocion extends Producto{
 		}
 		return existe;
 	}
-
-	public abstract double getPresupuesto();
-
-	public abstract double getTiempo_disponible();
-	
 	
 }
