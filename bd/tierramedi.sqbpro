@@ -1,10 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/martin/Proyectos/eclipse/TierraMedia/bd/tierramedia" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser query pragmas" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1882"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainusuario"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="atraccion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="114"/><column index="3" value="48"/><column index="4" value="60"/><column index="5" value="44"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="usuario" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="66"/><column index="3" value="56"/><column index="4" value="60"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Insertar Usuarios">INSERT INTO usuario VALUES (NULL,'Eowyn',10,8),
-(NULL,'Gandalf',100,5),
-(NULL,'Sam',36,8),
-(NULL,'Galadriel',120,6),
-(NULL,'Legolas',50,10),
-(NULL,'Saruman',15,7),
-(NULL,'Gollum',40,10);</sql><sql name="Insertar Atracciones">INSERT INTO atraccion VALUES
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/martin/Proyectos/eclipse/TierraMedia/bd/tierramedia" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1791"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,20:mainitinerario_promocion"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="atraccion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="114"/><column index="3" value="48"/><column index="4" value="60"/><column index="5" value="44"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="itinerario_atraccion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="97"/><column index="3" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="itinerario_promocion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="106"/><column index="3" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="promocion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="164"/><column index="3" value="164"/><column index="4" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="promocion_atraccion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="76"/><column index="2" value="151"/><column index="3" value="97"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="usuario" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="32"/><column index="2" value="66"/><column index="3" value="56"/><column index="4" value="60"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Insertar Atracciones">INSERT INTO atraccion VALUES
 (NULL,&quot;Moria&quot;,10,2,6),
 (NULL,&quot;Minas Tirith&quot;,5,2.5,25),
 (NULL,&quot;La Comarca&quot;,3,6.5,150),
@@ -12,27 +6,46 @@
 (NULL,&quot;Abismo de Helm&quot;,5,2,15),
 (NULL,&quot;Lothlórien&quot;,35,1,30),
 (NULL,&quot;Erebor&quot;,12,3,32),
-(NULL,&quot;Bosque Negro&quot;,3,4,12);</sql><sql name="Insertar Promociones">INSERT INTO promocion VALUES
-(NULL,&quot;Pack aventura&quot;,&quot;PORCENTUAL&quot;,20,0),
-(NULL,&quot;Pack aventura plus&quot;,&quot;PORCENTUAL&quot;,10,0),
-(NULL,&quot;Pack degustación gold&quot;,&quot;ABSOLUTO&quot;,46,0),
-(NULL,&quot;Pack degustación&quot;,&quot;ABSOLUTO&quot;,36,0),
-(NULL,&quot;Pack aventura&quot;,&quot;AXB&quot;,0,0),
-(NULL,&quot;Pack aventura extrema&quot;,&quot;AXB&quot;,0,0);</sql><sql name="Insertar Atraccion-Promocion">INSERT INTO promocion_atraccion VALUES
-(NULL,1,8),
-(NULL,1,4),
-(NULL,2,8),
-(NULL,2,4),
-(NULL,2,6),
-(NULL,3,6),
-(NULL,3,7),
-(NULL,3,3),
-(NULL,4,6),
-(NULL,4,3),
-(NULL,5,2),
-(NULL,5,5),
-(NULL,5,7),
-(NULL,6,2),
-(NULL,6,6),
-(NULL,6,8),
-(NULL,6,7);</sql><current_tab id="0"/></tab_sql></sqlb_project>
+(NULL,&quot;Bosque Negro&quot;,3,4,12);</sql><sql name="Insertar Usuarios">INSERT INTO usuario VALUES (NULL,'Eowyn',10,8),
+(NULL,'Gandalf',100,5),
+(NULL,'Sam',36,8),
+(NULL,'Galadriel',120,6),
+(NULL,'Legolas',50,10),
+(NULL,'Saruman',15,7),
+(NULL,'Gollum',40,10);</sql><sql name="Insertar Promociones">INSERT INTO promocion VALUES
+(NULL,&quot;Pack aventura&quot;,&quot;PORCENTUAL&quot;,20),
+(NULL,&quot;Pack aventura plus&quot;,&quot;PORCENTUAL&quot;,10),
+(NULL,&quot;Pack degustación gold&quot;,&quot;ABSOLUTO&quot;,46),
+(NULL,&quot;Pack degustación&quot;,&quot;ABSOLUTO&quot;,36),
+(NULL,&quot;Pack aventura&quot;,&quot;AXB&quot;,0),
+(NULL,&quot;Pack aventura extrema&quot;,&quot;AXB&quot;,0);</sql><sql name="Insertar Atraccion-Promocion">INSERT INTO promocion_atraccion VALUES
+(NULL,1,16),
+(NULL,1,12),
+(NULL,2,16),
+(NULL,2,12),
+(NULL,2,14),
+(NULL,3,14),
+(NULL,3,15),
+(NULL,3,11),
+(NULL,4,14),
+(NULL,4,11),
+(NULL,5,10),
+(NULL,5,13),
+(NULL,5,15),
+(NULL,6,10),
+(NULL,6,14),
+(NULL,6,16),
+(NULL,6,15);</sql><sql name="Restaurar Usuarios">UPDATE usuario SET dinero=10, tiempo=8 WHERE id=1;
+UPDATE usuario SET dinero=100, tiempo=5 WHERE id=2;
+UPDATE usuario SET dinero=36, tiempo=8 WHERE id=3;
+UPDATE usuario SET dinero=120, tiempo=6 WHERE id=4;
+UPDATE usuario SET dinero=50, tiempo=10 WHERE id=5;
+UPDATE usuario SET dinero=15, tiempo=7 WHERE id=6;
+UPDATE usuario SET dinero=40, tiempo=10 WHERE id=7;</sql><sql name="Restaurar Atracciones">UPDATE atraccion SET cupo=6 WHERE id=9;
+UPDATE atraccion SET cupo=25 WHERE id=10;
+UPDATE atraccion SET cupo=150 WHERE id=11;
+UPDATE atraccion SET cupo=4 WHERE id=12;
+UPDATE atraccion SET cupo=15 WHERE id=13;
+UPDATE atraccion SET cupo=30 WHERE id=14;
+UPDATE atraccion SET cupo=32 WHERE id=15;
+UPDATE atraccion SET cupo=12 WHERE id=16;</sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -77,4 +77,14 @@ public class AtraccionDAO {
 		int rows = statement.executeUpdate();
 		return rows;
 	}
+	
+	public int restaurar(int cupo,int id) throws SQLException {
+		Connection connection = ConnectionProvider.getConnection();
+		String sql = "UPDATE atraccion SET cupo=? WHERE id=?";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setDouble(1, cupo);
+		statement.setDouble(2, id);
+		int rows = statement.executeUpdate();
+		return rows;
+	}
 }

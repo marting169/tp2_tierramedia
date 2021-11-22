@@ -10,6 +10,7 @@ public abstract class Promocion extends Producto{
 	public Promocion(int id,String nombreAtraccion, double costo, double tiempo, ArrayList<Atraccion> atracciones) {
 		super(nombreAtraccion, costo, tiempo);
 		this.atracciones = atracciones;
+		this.id=id;
 	}
 
 	public int getId() {

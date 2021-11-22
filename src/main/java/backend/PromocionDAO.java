@@ -101,16 +101,7 @@ public class PromocionDAO {
 		return rows;
 	}*/
 
-	public int update(Promocion promocion) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "UPDATE promocion SET costo=? WHERE id=?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setDouble(1, promocion.getCosto());
-		statement.setInt(2, promocion.getId());
 
-		int rows = statement.executeUpdate();
-		return rows;
-	}
 
 	
 

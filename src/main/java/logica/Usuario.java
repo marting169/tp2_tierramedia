@@ -11,11 +11,11 @@ public class Usuario {
 	private ArrayList<Atraccion> soloAtracciones;
 
 	public Usuario(Integer id, String nombre, double presupuesto, double tiempo_disponible) {
-		this.id=id;
+		this.id = id;
 		this.nombre = nombre;
-		this.presupuesto = presupuesto;
-		this.tiempo_disponible = tiempo_disponible;
-		this.soloAtracciones=new ArrayList<Atraccion>();
+		this.setPresupuesto(presupuesto);
+		this.setTiempo_disponible(tiempo_disponible);
+		this.soloAtracciones = new ArrayList<Atraccion>();
 	}
 
 	public double getPresupuesto() {
@@ -31,7 +31,11 @@ public class Usuario {
 	}
 
 	public void setPresupuesto(double presupuesto) {
-		this.presupuesto = presupuesto;
+		if (presupuesto >= 0) {
+			this.presupuesto = presupuesto;
+		} else {
+			throw new Error("Se ingresó un presupuesto negativo");
+		}
 	}
 
 	public double getTiempo_disponible() {
@@ -39,7 +43,11 @@ public class Usuario {
 	}
 
 	public void setTiempo_disponible(double tiempo_disponible) {
-		this.tiempo_disponible = tiempo_disponible;
+		if (tiempo_disponible >= 0) {
+			this.tiempo_disponible = tiempo_disponible;
+		} else {
+			throw new Error("Se ingresó un presupuesto negativo");
+		}
 	}
 
 	public String getNombre() {
@@ -49,7 +57,7 @@ public class Usuario {
 	public ArrayList<Producto> getItinerario() {
 		return itinerario;
 	}
-	
+
 	public void listarItinerarios() {
 		for (Producto itinerarioA : this.itinerario) {
 			System.out.println(itinerarioA.toString());
@@ -66,12 +74,12 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "\nUSUARIO: [Nombre=" + nombre + ", Presupuesto=" + presupuesto + ", Tiempo_disponible=" + tiempo_disponible + "]"
-				+ "\nITINERARIO:\n" + itinerario ;
+		return "\nUSUARIO: [Nombre=" + nombre + ", Presupuesto=" + presupuesto + ", Tiempo_disponible="
+				+ tiempo_disponible + "]" + "\nITINERARIO:\n" + itinerario;
 	}
 
 	public void setSoloAtracciones(ArrayList<Atraccion> soloAtracciones) {
-		this.soloAtracciones=soloAtracciones;
+		this.soloAtracciones = soloAtracciones;
 	}
 
 }

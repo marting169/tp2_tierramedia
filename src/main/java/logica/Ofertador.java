@@ -8,7 +8,6 @@ import java.util.Scanner;
 import backend.AtraccionDAO;
 import backend.ItinerarioAtraccionDAO;
 import backend.ItinerarioPromocionDAO;
-import backend.PromocionDAO;
 import backend.UsuarioDAO;
 
 public class Ofertador {
@@ -35,7 +34,6 @@ public class Ofertador {
 			for (Promocion promocion : promocionesP) {
 				String input;
 				Scanner sc = new Scanner(System.in);
-				PromocionDAO promocionDao = new PromocionDAO();
 				if (presupuesto >= promocion.getConDescuento() && tiempoDisponible >= promocion.getTiempo()
 						&& promocion.obtenerCupoMinimo() > 0
 						&& !promocion.atraccionIncluidaEnPromocion(soloAtracciones)) {
@@ -54,7 +52,6 @@ public class Ofertador {
 							promocion.decrementarCupos();
 							presupuesto -= promocion.getConDescuento();
 							tiempoDisponible -= promocion.getTiempo();
-							promocionDao.update(promocion);
 							System.out.println("-----------------------------------------------------\n");
 						} else if (input.equals("N") || input.equals("n")) {
 							System.out.println("Descartado");

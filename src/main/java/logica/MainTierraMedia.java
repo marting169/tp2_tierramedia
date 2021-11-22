@@ -2,6 +2,7 @@ package logica;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import backend.AtraccionDAO;
 import backend.ConnectionProvider;
@@ -17,41 +18,29 @@ public class MainTierraMedia {
 		ArrayList<Usuario> listaDeUsuarios = usuarioDao.findAll();
 		System.out.println(listaDeUsuarios);
 
-		/*ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		LeerUsuarios listaDeUsuarios=new LeerUsuarios("archivos/usuarios.csv",usuarios);
-		listaDeUsuarios.leerArchivoUsuarios();
-		listaDeUsuarios.listarUsuarios();*/
-		
 		AtraccionDAO atraccionDao = new AtraccionDAO();
 		ArrayList<Atraccion> listaDeAtracciones = atraccionDao.findAll();
+		Collections.sort(listaDeAtracciones, Collections.reverseOrder(new OrdenadorAtraccionXPrecio()));
 		System.out.println(listaDeAtracciones);
-		
-		/*ArrayList<Atraccion> atraccionesDisponibles=new ArrayList<Atraccion>();
-		LeerAtracciones listaDeAtracciones=new LeerAtracciones("archivos/atracciones.csv",atraccionesDisponibles);
-		listaDeAtracciones.leerArchivoAtracciones();
-		//listaDeAtracciones.listarAtracciones();*/
-		
+
 		PromocionDAO promocionDao = new PromocionDAO();
 		ArrayList<Promocion> listaDePromociones = promocionDao.findAll(listaDeAtracciones);
+		Collections.sort(listaDePromociones, Collections.reverseOrder(new OrdenadorPromocionXPrecio()));
 		System.out.println(listaDePromociones);
 		
-		/*ArrayList<Promocion>promocionesDisponibles=new ArrayList<Promocion>();
-		LeerPromociones listaDePromociones=new LeerPromociones("archivos/promociones.csv",promocionesDisponibles);
-		listaDePromociones.leerArchivoPromociones(atraccionesDisponibles);
-		//listaDePromociones.listarPromociones();*/
 		
-		ItinerarioPromocionDAO itinerarioPromocionDao=new ItinerarioPromocionDAO();
-		ItinerarioAtraccionDAO itinerarioAtraccionDao=new ItinerarioAtraccionDAO();
-		Ofertador ofertas=new Ofertador();
-		ofertas.generarOferta(listaDeAtracciones, listaDePromociones, listaDeUsuarios,itinerarioPromocionDao,itinerarioAtraccionDao);
+
+		ItinerarioPromocionDAO itinerarioPromocionDao = new ItinerarioPromocionDAO();
+		ItinerarioAtraccionDAO itinerarioAtraccionDao = new ItinerarioAtraccionDAO();
+		Ofertador ofertas = new Ofertador();
+		ofertas.generarOferta(listaDeAtracciones, listaDePromociones, listaDeUsuarios, itinerarioPromocionDao,
+				itinerarioAtraccionDao);
 		System.out.println(listaDeUsuarios);
+
+		Iniciar iniciar=new Iniciar();
+		System.out.println(iniciar.reiniciar());
 		
-		//listaDeAtracciones.listarAtracciones();
-		//listaDePromociones.listarPromociones();
 		
-		/*ArchivoSalida salida = new ArchivoSalida();		
-		salida.guardarEnArchivo(usuarios, "archivos/");
-		*/
 		ConnectionProvider.close();
 	}
 
