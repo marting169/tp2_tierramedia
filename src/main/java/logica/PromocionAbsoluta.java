@@ -21,12 +21,6 @@ public class PromocionAbsoluta extends Promocion{
 		return conDescuento;
 	}
 
-	/*@Override
-	public String toString() {
-		return "PromocionAbsoluta [conDescuento=" + conDescuento + ", atracciones=" + atracciones + ", nombre=" + nombre
-				+ ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]";
-	}*/
-	
 	@Override
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo

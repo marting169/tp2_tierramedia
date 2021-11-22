@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-import backend.AtraccionDAO;
-import backend.ItinerarioAtraccionDAO;
-import backend.ItinerarioPromocionDAO;
-import backend.UsuarioDAO;
+import persistencia.AtraccionDAO;
+import persistencia.ItinerarioAtraccionDAO;
+import persistencia.ItinerarioPromocionDAO;
+import persistencia.UsuarioDAO;
 
 public class Ofertador {
 	private ArrayList<Producto> itinerarios;
@@ -45,7 +45,6 @@ public class Ofertador {
 						if (input.equals("S") || input.equals("s")) {
 							this.itinerarios.add(promocion);
 							this.soloAtracciones.addAll(promocion.obtenerAtracciones());
-							//ItinerarioPromocionDAO itinerarioPromocionDao=new ItinerarioPromocionDAO();
 							itinerarioPromocionDao.insert(promocion.getId(),usuario.getId());
 							System.out.println("Aceptada!");
 							band = true;
@@ -78,7 +77,6 @@ public class Ofertador {
 						if (input.equals("S") || input.equals("s")) {
 							this.itinerarios.add(atraccion);
 							this.soloAtracciones.add(atraccion);
-							//ItinerarioAtraccionDAO itinerarioAtraccionDao=new ItinerarioAtraccionDAO();
 							itinerarioAtraccionDao.insert(atraccion.getId(),usuario.getId());
 							System.out.println("Aceptada!");
 							band = true;

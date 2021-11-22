@@ -23,13 +23,6 @@ public class PromocionAXB extends Promocion{
 		return conDescuento;
 	}
 	
-
-
-	/*@Override
-	public String toString() {
-		return "PromocionAXB [conDescuento=" + conDescuento + ", atracciones=" + atracciones + ", nombre=" + nombre
-				+ ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]";
-	}*/
 	
 	@Override
 	public String toString() {

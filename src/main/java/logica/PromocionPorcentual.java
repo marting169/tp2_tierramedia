@@ -11,7 +11,6 @@ public class PromocionPorcentual extends Promocion {
 		super(id,nombreAtraccion, costo, tiempo, atracciones);
 		setDescuento(conDescuento);
 	}
-	//OK
 	public void setDescuento(double descuento) {
 		this.conDescuento= this.getCosto()-(this.getCosto()*descuento/100);
 	}
@@ -19,14 +18,7 @@ public class PromocionPorcentual extends Promocion {
 	public double getConDescuento() {
 		return conDescuento;
 	}
-	/*@Override
-	public String toString() {
-		return "PromocionPorcentual [conDescuento=" + conDescuento + ", atracciones=" + this.getAtracciones() + ", nombre="
-				+ nombre + ", costo=" + costo + ", tiempo=" + tiempo + ", cupo=" + cupo + "]";
-	}*/
 
-
-	
 	@Override
 	public String toString() {
 		return nombre + "\n-Atracciones incluidas: " + this.getAtracciones() + "\n-Duracion :" + tiempo

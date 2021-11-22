@@ -1,10 +1,7 @@
-package logica;
+package persistencia;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
-import backend.AtraccionDAO;
-import backend.UsuarioDAO;
 
 public class Iniciar {
 

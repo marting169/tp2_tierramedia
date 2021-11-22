@@ -1,4 +1,4 @@
-package backend;
+package persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,32 +38,8 @@ public class AtraccionDAO {
 		}
 		return todos;
 	}
-
-
 	
-	/*
-	public int delete(Atraccion atraccion) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "DELETE FROM atraccion WHERE nombre=?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, atraccion.getNombreAtraccion());
-		
-		int rows = statement.executeUpdate();
-		return rows;
-	}*/
-	
-	/*public int insert(Atraccion atraccion) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "INSERT INTO atraccion (nombre,costo, tiempo, cupo) VALUES (?,?,?,?)";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, atraccion.getNombreAtraccion());
-		statement.setDouble(2, atraccion.getCosto());
-		statement.setDouble(3, atraccion.getTiempo());
-		statement.setDouble(4, atraccion.getCupo());
-		
-		int rows = statement.executeUpdate();
-		return rows;
-	}*/
+
 	
 	public int update(Atraccion atraccion) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();

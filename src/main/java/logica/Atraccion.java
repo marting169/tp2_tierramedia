@@ -16,7 +16,7 @@ public class Atraccion extends Producto {
 	}
 
 	public void setCupo(int cupo) {
-		if (cupo >0) {
+		if (cupo >=0) {
 			this.cupo = cupo;
 		} else {
 			throw new Error("Se ingresó un cupo negativo");

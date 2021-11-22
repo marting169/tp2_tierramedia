@@ -1,4 +1,4 @@
-package backend;
+package persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -65,44 +65,6 @@ public class PromocionDAO {
 		return atracciones;
 	}
 	
-	/*public List<Promocion> findByNombre(String nom) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "select * FROM promocion WHERE nombre=?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, nom);
 
-		ResultSet result = statement.executeQuery();
-		List<Promocion> todos = new LinkedList<Promocion>();
-		while (result.next()) {
-			todos.add(toPromocion(result));
-		}
-		return todos;
-	}*/
-
-	/*public int delete(Promocion promocion) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "DELETE FROM promocion WHERE nombre=?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, promocion.getNombrePromocion());
-
-		int rows = statement.executeUpdate();
-		return rows;
-	}*/
-
-	/*public int insert(Promocion promocion) throws SQLException {
-		Connection connection = ConnectionProvider.getConnection();
-		String sql = "INSERT INTO promocion (nombre,dinero, tiempo) VALUES (?,?,?)";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, promocion.getNombre());
-		statement.setDouble(2, promocion.getPresupuesto());
-		statement.setDouble(3, promocion.getTiempo_disponible());
-
-		int rows = statement.executeUpdate();
-		return rows;
-	}*/
-
-
-
-	
 
 }

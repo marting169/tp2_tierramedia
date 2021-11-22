@@ -26,7 +26,11 @@ public abstract class Producto {
 	}
 
 	public void setCosto(double costo) {
+		if(costo>=0) {
 		this.costo = costo;
+		}else {
+			throw new Error("Se ingresó un costo negativo");
+		}
 	}
 
 	public double getTiempo() {
