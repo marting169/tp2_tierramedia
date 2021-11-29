@@ -4,19 +4,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import logica.Atraccion;
+import dao.AtraccionDAO;
+import dao.ItinerarioAtraccionDAO;
+import dao.ItinerarioPromocionDAO;
+import dao.PromocionDAO;
+import dao.UsuarioDAO;
+import jdbc.ConnectionProvider;
+import jdbc.Iniciar;
 import logica.Ofertador;
 import logica.OrdenadorAtraccionXPrecio;
 import logica.OrdenadorPromocionXPrecio;
-import logica.Promocion;
-import logica.Usuario;
-import persistencia.AtraccionDAO;
-import persistencia.ConnectionProvider;
-import persistencia.Iniciar;
-import persistencia.ItinerarioAtraccionDAO;
-import persistencia.ItinerarioPromocionDAO;
-import persistencia.PromocionDAO;
-import persistencia.UsuarioDAO;
+import model.Atraccion;
+import model.Promocion;
+import model.Usuario;
 
 public class MainTierraMedia {
 

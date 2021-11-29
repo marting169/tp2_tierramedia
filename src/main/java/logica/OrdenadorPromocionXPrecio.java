@@ -2,6 +2,8 @@ package logica;
 
 import java.util.Comparator;
 
+import model.Promocion;
+
 public class OrdenadorPromocionXPrecio implements Comparator<Promocion>{
 
 	public int compare(Promocion p1, Promocion p2) {
